@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Sign In
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,43 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">Sign In</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-card class="ion-padding">
+    <form>
+      <ion-text color='light'>
+        <h1>LOG IN</h1>
+      </ion-text>
+      <ion-item lines="full">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" #email required></ion-input>
+      </ion-item>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+      <ion-item lines="full">
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" #password required></ion-input>
+      </ion-item>
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" (click)="logIn(email, password)" expand="block">Login</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="secondary" (click)="authenticationService.GoogleAuth()" expand="block">
+            Google Login
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button color='danger' routerLink='/tabs/tab1/signup' routerDirection='forward' expand="block">Create an
+            account</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-card>
+
 </ion-content>
